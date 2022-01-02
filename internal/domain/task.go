@@ -4,7 +4,7 @@ import (
 	"time"
 )
 
-type Task struct {
+type Tasks struct {
 	TaskID     int    `json:"taskid"`
 	Title      string `json:"title"`
 	Decription string `json:"description"`
@@ -15,10 +15,10 @@ type Task struct {
 	Flag       string `json:"flag"`
 	IsActive   bool   `json:"isactive"`
 	IsDisable  bool   `json:"isdisable"`
-	Authors    []Author
+	Authors    []Authors
 }
 
-type Author struct {
+type Authors struct {
 	AuthorID int    `json:"authorid"`
 	Name     string `json:"name"`
 	Contact  string `json:"contact"`
@@ -30,11 +30,11 @@ type SolvedTasks struct {
 	Timestamp time.Time `json:"timestemp"`
 }
 
-type TaskSubmissions struct {
+type TasksSubmissions struct {
 	TaskID        int       `json:"taskid"`
 	TeamID        int       `json:"teamid"`
 	SubmitionerID int       `json:"submitionerid"`
 	Submission    string    `json:"submission"`
 	IsCorrect     bool      `json:"iscorrect"`
-	Timrstemp     time.Time `json:"timestemp"`
+	Timestemp     time.Time `json:"timestemp"`
 }
