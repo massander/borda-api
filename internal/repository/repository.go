@@ -28,3 +28,10 @@ type Authors interface {
 	Delete()
 	Change()
 }
+
+type repository interface {
+	TasksAdmin
+	TasksUser
+	TasksSubmission
+	Authors
+}
