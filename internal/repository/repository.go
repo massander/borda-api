@@ -1,5 +1,6 @@
 package repository
 
+// Tasks
 type TasksAdmin interface {
 	Create()    //Создать такс
 	Delete()    //Удалить таск
@@ -15,7 +16,8 @@ type TasksAdmin interface {
 }
 
 type TasksUser interface {
-	ShowTasks() //Просмотреть таски
+	ShowTasks() //Просмотреть таски             !    НУЖНЫ ЛИ ЭТИ МЕТОДЫ В ТАСКАХ 	  !
+	ShowHint()  //                              ! ИЛИ ИХ ЛУЧШЕ В КОМАНДУ?? и наоборот !
 	//TrySolve()  //Попытаться решить
 }
 
@@ -23,15 +25,38 @@ type TasksSubmission interface {
 	TrySolve(TaskID int, TeamID int) (a bool /*, time.Time*/)
 }
 
-type Authors interface {
+type TasksAuthors interface {
 	Create()
 	Delete()
 	Change()
 }
 
-type repository interface {
+//users
+type Roles interface {
+	Create()
+}
+
+type Persons interface {
+	Create()
+	Find()
+	ChangePassword()
+}
+
+type Teams interface {
+	Create()
+	Join()
+	ViewTeam()
+	ViewScoreboard()
+	ChangeAdmin()
+	Kick()
+}
+
+type Repository interface {
 	TasksAdmin
 	TasksUser
 	TasksSubmission
-	Authors
+	TasksAuthors
+	Roles
+	Persons
+	Teams
 }
